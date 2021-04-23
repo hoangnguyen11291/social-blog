@@ -1,28 +1,34 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
+import logo from "../images/blogger_512.png";
 
 const NavigationBar = () => {
   return (
-    <Navbar className="navigation" expand="lg">
-      <Navbar.Brand className="mr-auto">
-        <h3>LOGO HERE</h3>
-      </Navbar.Brand>
+    <nav className="navigation">
+      <input type="checkbox" id="nav-toggle" />
+      <img src={logo} alt="Logo" className="logo" width="80px" />
 
-      <Nav className="ml-auto">
-        <div>
-          <Link className="link" to="/">
+      <ul className="links">
+        <li>
+          <Link className="a-link" to="/">
             Home
           </Link>
-        </div>
+        </li>
 
-        <div>
-          <Link className="link" to="/login">
+        <li>
+          <Link className="a-link" to="/login">
             Log In
           </Link>
-        </div>
-      </Nav>
-    </Navbar>
+        </li>
+      </ul>
+
+      <label htmlFor="nav-toggle" className="icon-burger">
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+      </label>
+    </nav>
   );
 };
 

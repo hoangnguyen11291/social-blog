@@ -12,7 +12,7 @@ import HomePage from "./pages/HomePage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import BlogEditorPage from "./pages/BlogEditorPage";
+// import BlogEditorPage from "./pages/BlogEditorPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
