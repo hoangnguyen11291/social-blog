@@ -1,12 +1,16 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_BACKEND_API,
+  baseURL: process.env.REACT_APP_BACKEND_API + "/api",
   headers: {
     "Content-Type": "application/json",
+    authorization: "Bearer " + localStorage.getItem("accessToken"),
   },
 });
-
+/**
+ * console.log all requests and responses
+ */
 api.interceptors.request.use(
   (request) => {
     console.log("Starting Request", request);
@@ -19,13 +23,17 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (response) => {
-    console.log("Response is ", response);
+    console.log("Response:", response);
     return response;
   },
   function (error) {
     error = error.response.data;
-    console.log("Response Error", error);
-    return Promise.reject({ message: error.split("\n") });
+    console.log("RESPONSE ERROR", error);
+    let errorMsg = error.message || "";
+    if (error.errors && error.errors.message)
+      errorMsg = errorMsg + ": " + error.errors.message;
+    toast.error(errorMsg);
+    return Promise.reject(error);
   }
 );
 
