@@ -28,12 +28,7 @@ const NavigationBar = () => {
       <img src={logo} alt="Logo" className="logo" width="80px" />
 
       <ul className="links">
-        <li>
-          <Link className="a-link" to="/">
-            Home
-          </Link>
-        </li>
-        {accessToken ? (
+        {accessToken && accessToken ? (
           <li>
             <Link className="a-link" to="/" onClick={handleSubmit}>
               Logout
@@ -41,6 +36,11 @@ const NavigationBar = () => {
           </li>
         ) : (
           <>
+            <li>
+              <Link className="a-link" to="/">
+                Home
+              </Link>
+            </li>
             <li>
               <Link className="a-link" to="/register">
                 Regiter

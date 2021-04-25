@@ -267,8 +267,18 @@ nav .icon-burger .line {
   margin-top: 80px;
 }
 
-.register-padding {
-  padding-top: 100px;
-  padding-left: 30px;
-  padding-right: 30px;
+.login-box {
+  margin: 0 auto;
+  margin-top: 25vh;
+  color: white;
+  height: 500px;
+  width: 400px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2em;
+  background: #4568dc;
+  background: -webkit-linear-gradient(to right, #b06ab3, #4568dc);
+  background: linear-gradient(to right, #b06ab3, #4568dc);
 }
